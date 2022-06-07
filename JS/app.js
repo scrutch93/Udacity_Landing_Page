@@ -15,7 +15,7 @@ function setupNav() {
   let navList = document.getElementById('navbar__list');
 
   for (let i = 0; i < sections.length; i++) {
-    let listItem = document.createElement('li');
+    let listItem = document.createElement('li');//add class here
     let section = sections[i];
     let sectionId = section.getAttribute('id');
     let sectionTitle = section.getAttribute('data-nav');
