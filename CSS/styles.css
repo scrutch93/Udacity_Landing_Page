@@ -66,6 +66,11 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
+nav {
+    background-color: black;
+   
+}
 .navbar__menu ul {
     padding-left: 0;
     margin: 0;
@@ -74,6 +79,9 @@ section {
 
 .navbar__menu li {
     display: inline-block;
+    font-family: 'Oxygen', Sans-Serif;
+    font-size: 20px;
+    
 }
 
 .navbar__menu .menu__link {
