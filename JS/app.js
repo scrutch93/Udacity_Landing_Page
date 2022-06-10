@@ -52,32 +52,34 @@ function setupNav() {
 function removeActiveStateFromSections(){
    
     for(let i = 0; i < sections.length; i++){
-        sections[i].classList.remove('active-section');
-       
+       let active = sections[i].classList.remove('active-section');
+       active;
     }
 
 }
 
 window.addEventListener("scroll", function(){
     let currentPosition = window.pageYOffset;
-    let sectionHeader = document.querySelectorAll('h2');
+    //let sectionHeader = document.querySelectorAll('h2');
     
     for(let i = 0; i < positions.length; i++){
         if (currentPosition >= positions[i] && currentPosition <= positions[i + 1] ){
             
             removeActiveStateFromSections();
 
-            sections[i].classList.add('active-section');
+            let active = sections[i].classList.add('active-section');
          
-            
-           document.getElementsByClassName('active-section').style.color = "yellow";
+            active;
+           //document.getElementsByClassName('active-section').style.color = "yellow";
            
             
             
         }else if(currentPosition >= positions[i]){
             removeActiveStateFromSections();
 
-            sections[i].classList.add('active-section');
+            let active = sections[i].classList.add('active-section');
+
+            active;
 
            
            

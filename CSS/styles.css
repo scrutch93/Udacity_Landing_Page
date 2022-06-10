@@ -68,6 +68,10 @@ section {
 /* Navigation Styles*/
 
 nav {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    padding: 30px;
     background-color: black;
    
 }
@@ -81,6 +85,7 @@ nav {
     display: inline-block;
     font-family: 'Fira Sans', Sans-Serif;
     font-size: 20px;
+    padding: 8px;
     
 }
 
