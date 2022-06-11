@@ -72,12 +72,14 @@ window.addEventListener("scroll", function(){
             
             removeActiveStateFromSections();
 
-            sections[i].classList.add('active-section');
-            console.log("🚀 ~ file: app.js ~ line 74 ~ window.addEventListener ~ sections[i].classList.add('active-section')", sections[i].classList.add('active-section'))
+           active = sections[i].classList.add('active-section');
+
+           active;
+           console.log("🚀 ~ file: app.js ~ line 94 ~ window.addEventListener ~ active", active)
+
          
             
             
-    
            
             
             
