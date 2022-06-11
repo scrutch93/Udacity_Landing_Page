@@ -1,5 +1,4 @@
 let sections  = document.querySelectorAll('section');
-
 //variable targeting sections of window
 
 //postions will be an empty array
@@ -17,7 +16,7 @@ for (let i = 0; i < sections.length; i++) {
 
 function setupNav() {
     //function for setting up the nav bar
-  let navList = document.getElementById('navbar__list');
+  const navList = document.getElementById('navbar__list');
   
   //defining the navlist as a variable and reaching out to the DOM to retrieve the ID.
 
@@ -37,11 +36,13 @@ function setupNav() {
         let newId = event.target.getAttribute('data-section');
         let nextSection = document.getElementById(newId);
         
+
+       //nextSection.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
         window.scroll({
             top: nextSection.offsetTop,
             behavior: "smooth"
             
-        });
+         });
         
     
     })
@@ -52,39 +53,44 @@ function setupNav() {
 function removeActiveStateFromSections(){
    
     for(let i = 0; i < sections.length; i++){
-       let active = sections[i].classList.remove('active-section');
-       active;
+
+        active = sections[i].classList.remove('active-section');
+
+        active;
+      
     }
 
 }
 
 window.addEventListener("scroll", function(){
     let currentPosition = window.pageYOffset;
-    //let sectionHeader = document.querySelectorAll('h2');
+
+    let sectionHeader = document.querySelectorAll('h2');
     
     for(let i = 0; i < positions.length; i++){
         if (currentPosition >= positions[i] && currentPosition <= positions[i + 1] ){
             
             removeActiveStateFromSections();
 
-            let active = sections[i].classList.add('active-section');
+            sections[i].classList.add('active-section');
+            console.log("🚀 ~ file: app.js ~ line 74 ~ window.addEventListener ~ sections[i].classList.add('active-section')", sections[i].classList.add('active-section'))
          
-            active;
-           //document.getElementsByClassName('active-section').style.color = "yellow";
+            
+            
+    
            
             
             
         }else if(currentPosition >= positions[i]){
             removeActiveStateFromSections();
 
-            let active = sections[i].classList.add('active-section');
+            active = sections[i].classList.add('active-section');
 
             active;
-
-           
            
             
         }
+            
            
            
         

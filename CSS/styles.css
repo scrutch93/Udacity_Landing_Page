@@ -71,9 +71,26 @@ nav {
     display: flex;
     justify-content: end;
     align-items: flex-end;
-    padding: 30px;
+    padding: 5px;
     background-color: black;
    
+}
+
+@media (max-width: 640px) {
+    nav{
+
+        display: flex;
+        justify-content: end;
+        align-items: flex-end;
+        padding: 5px;
+        background-color: black;
+
+    }
+
+    main {
+        margin: 20vh 1em 10vh;
+    }
+
 }
 .navbar__menu ul {
     padding-left: 0;
@@ -136,6 +153,10 @@ nav {
         max-width: 50em;
         padding: 4em;
     }
+}
+.active-section h2 {
+
+    color: "yellow"
 }
 
 section:nth-of-type(even) .landing__container {
@@ -235,4 +256,9 @@ section.your-active-class .landing__container::after {
 		           translate(-1em) 
 		           rotate(-360deg);
 	}
+}
+
+@media only screen and (max-width: 768px){
+
+
 }
