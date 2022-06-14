@@ -67,7 +67,7 @@ window.addEventListener("scroll", function () {
        
         sections[i].classList.add("active-class");
 
-        
+        sections[i].style.color= "yellow";
 
     
     } else if (currentPosition >= positions[i]) {
