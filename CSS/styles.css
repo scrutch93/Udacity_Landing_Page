@@ -99,7 +99,7 @@ nav {
 }
 
 .navbar__menu li {
-    display: inline-block;
+    display: inline-flex;
     font-family: 'Fira Sans', Sans-Serif;
     font-size: 20px;
     padding: 8px;

@@ -8,7 +8,7 @@ let positions = [];
 //variable positions will be set to an empty array
 for (let i = 0; i < sections.length; i++) {
 //Setting up a loop to be able to flow though each section    
-  let position = sections[i].getBoundingClientRect().top + window.scrollY; //defining a variable to where each intstance within sections you will retrieve the information regarding the size of the element relative to the viewport.
+  let position = sections[i].getBoundingClientRect(); //defining a variable to where each intstance within sections you will retrieve the information regarding the size of the element relative to the viewport.
   
   positions[i] = position; //
  
@@ -23,7 +23,8 @@ function setupNav() {
   for (let i = 0; i < sections.length; i++) {
       //Setting up a for loop to cycle through every section.
     let listItem = document.createElement('li');//add class here
-
+    let cool = listItem.classList.add("color");
+    console.log("🚀 ~ file: app.js ~ line 27 ~ setupNav ~ listItem", listItem)
     let section = sections[i];//This variable defines a section picked out of the array of Sections.
     let sectionId = section.getAttribute('id');//fetching the attribute id and defining it as variable sectionId.
     let sectionTitle = section.getAttribute('data-nav');//fetching the data nav attribute and defining it as sectionId.
@@ -37,14 +38,14 @@ function setupNav() {
         let nextSection = document.getElementById(newId);
         
 
-       //nextSection.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
-        window.scroll({
-            top: nextSection.offsetTop,
-            behavior: "smooth"
+       nextSection.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+        // window.scroll({
+        //     top: nextSection.offsetTop,
+        //     behavior: "smooth"
             
-         });
+        //  });
         
-    
+        
     })
    
 
@@ -54,9 +55,9 @@ function removeActiveStateFromSections(){
    
     for(let i = 0; i < sections.length; i++){
 
-        active = sections[i].classList.remove('active-section');
+        sections[i].classList.remove('active-section');
 
-        active;
+       
       
     }
 
@@ -72,10 +73,10 @@ window.addEventListener("scroll", function(){
             
             removeActiveStateFromSections();
 
-           active = sections[i].classList.add('active-section');
+           sections[i].classList.add('active-section');
 
-           active;
-           console.log("🚀 ~ file: app.js ~ line 94 ~ window.addEventListener ~ active", active)
+           
+           
 
          
             
@@ -86,7 +87,7 @@ window.addEventListener("scroll", function(){
         }else if(currentPosition >= positions[i]){
             removeActiveStateFromSections();
 
-            active = sections[i].classList.add('active-section');
+           let  active = sections[i].classList.add('active-section');
 
             active;
            
