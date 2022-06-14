@@ -154,10 +154,6 @@ nav {
         padding: 4em;
     }
 }
-.active-section h2 {
-
-    color: "yellow"
-}
 
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
