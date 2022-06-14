@@ -54,24 +54,27 @@ function removeActiveStateFromSections() {
 }
 
 window.addEventListener("scroll", function () {
-  let navLinks = document.querySelectorAll("nav a");
+  let navLinks = document.querySelectorAll("nav li");
   let currentPosition = window.scrollY;
   
   for (let i = 0; i < positions.length; i++) {
-    if (currentPosition <= positions[i] && currentPosition >= positions[i + 1]) {
+    if (currentPosition >= positions[i]) {
       removeActiveStateFromSections();
       sections[i].classList.add("active-class");
-      sections[i].style.color= "yellow";
-      console.log(navLinks);
+      sections[i].style.color = "yellow";
+
+      
       for (let x = 0; x < navLinks.length; x++) {
         console.log(navLinks[x]);
-        if (navLinks[x] === sections[i].id) {
-            // change the style for the nav item not section
+        if (navLinks[x].getAttribute("data-section") === sections[i].id) {
+          // change the style for the nav item not section
+          navLinks[i].style.color = "yellow";
+        }else{
+          
+          navLinks[i].style.color = "black";
+
         }
       }
-    } else if (currentPosition >= positions[i]) {
-      removeActiveStateFromSections();
-      sections[i].classList.add("active-class");
     }
   }
 });
