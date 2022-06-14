@@ -38,6 +38,7 @@ function setupNav() {
   }
 }
 function removeActiveStateFromSections() {
+  //This function is for removing the active state within each section.
   for (let i = 0; i < sections.length; i++) {
     sections[i].classList.remove("active-class");
   }
@@ -54,9 +55,7 @@ window.addEventListener("scroll", function () {
       sections[i].style.color = "yellow";
 
       for (let x = 0; x < navLinks.length; x++) {
-        console.log(navLinks[x]);
         if (navLinks[x].getAttribute("data-section") === sections[i].id) {
-          // change the style for the nav item not section
           navLinks[x].style.color = "yellow";
         } else {
           navLinks[x].style.color = "black";
