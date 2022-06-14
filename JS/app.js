@@ -8,6 +8,7 @@ for (let i = 0; i < sections.length; i++) {
   //Setting up a loop to be able to flow though each section
   let position = sections[i].getBoundingClientRect().top + window.scrollY; //defining a variable to where each intstance within sections you will retrieve the information regarding the size of the element relative to the viewport.
   positions[i] = position; //
+  
 }
 
 function setupNav() {
@@ -16,6 +17,7 @@ function setupNav() {
 
   for (let i = 0; i < sections.length; i++) {
     let listItem = document.createElement("li");
+    listItem.classList.add("menu__link")
     let section = sections[i];
     let sectionId = section.getAttribute("id");
     let sectionTitle = section.getAttribute("data-nav");
@@ -28,11 +30,11 @@ function setupNav() {
       event.preventDefault();
       let newId = event.target.getAttribute("data-section");
       let nextSection = document.getElementById(newId);
-      nextSection.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-        inline: "nearest",
-      });
+    //   nextSection.scrollIntoView({
+    //     behavior: "smooth",
+    //     block: "end",
+    //     inline: "nearest",
+    //   });
 
       window.scroll({
         top: nextSection.offsetTop,
@@ -42,26 +44,36 @@ function setupNav() {
   }
 }
 function removeActiveStateFromSections() {
+
   for (let i = 0; i < sections.length; i++) {
-    sections[i].classList.remove("your-active-class");
+    
+    sections[i].classList.remove("active-class");
   }
+    
+      
 }
 
 window.addEventListener("scroll", function () {
-  let currentPosition = window.pageYOffset;
-
+  
+  let currentPosition = window.scrollY;
+  
   for (let i = 0; i < positions.length; i++) {
     if (
-      currentPosition >= positions[i] &&
-      currentPosition <= positions[i + 1]
+      currentPosition <= positions[i] &&
+      currentPosition >= positions[i + 1]
     ) {
       removeActiveStateFromSections();
+     
+       
+        sections[i].classList.add("active-class");
 
-      sections[i].classList.add("your-active-class");
+        
+
+    
     } else if (currentPosition >= positions[i]) {
       removeActiveStateFromSections();
 
-      sections[i].classList.add("your-active-class");
+      sections[i].classList.add("active-class");
     }
   }
 });
