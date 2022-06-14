@@ -54,25 +54,23 @@ function removeActiveStateFromSections() {
 }
 
 window.addEventListener("scroll", function () {
-  
+  let navLinks = document.querySelectorAll("nav a");
   let currentPosition = window.scrollY;
   
   for (let i = 0; i < positions.length; i++) {
-    if (
-      currentPosition <= positions[i] &&
-      currentPosition >= positions[i + 1]
-    ) {
+    if (currentPosition <= positions[i] && currentPosition >= positions[i + 1]) {
       removeActiveStateFromSections();
-     
-       
-        sections[i].classList.add("active-class");
-
-        sections[i].style.color= "yellow";
-
-    
+      sections[i].classList.add("active-class");
+      sections[i].style.color= "yellow";
+      console.log(navLinks);
+      for (let x = 0; x < navLinks.length; x++) {
+        console.log(navLinks[x]);
+        if (navLinks[x] === sections[i].id) {
+            // change the style for the nav item not section
+        }
+      }
     } else if (currentPosition >= positions[i]) {
       removeActiveStateFromSections();
-
       sections[i].classList.add("active-class");
     }
   }
