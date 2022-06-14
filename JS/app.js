@@ -8,7 +8,6 @@ for (let i = 0; i < sections.length; i++) {
   //Setting up a loop to be able to flow though each section
   let position = sections[i].getBoundingClientRect().top + window.scrollY; //defining a variable to where each intstance within sections you will retrieve the information regarding the size of the element relative to the viewport.
   positions[i] = position; //
-  
 }
 
 function setupNav() {
@@ -17,7 +16,7 @@ function setupNav() {
 
   for (let i = 0; i < sections.length; i++) {
     let listItem = document.createElement("li");
-    listItem.classList.add("menu__link")
+    listItem.classList.add("menu__link");
     let section = sections[i];
     let sectionId = section.getAttribute("id");
     let sectionTitle = section.getAttribute("data-nav");
@@ -30,11 +29,6 @@ function setupNav() {
       event.preventDefault();
       let newId = event.target.getAttribute("data-section");
       let nextSection = document.getElementById(newId);
-    //   nextSection.scrollIntoView({
-    //     behavior: "smooth",
-    //     block: "end",
-    //     inline: "nearest",
-    //   });
 
       window.scroll({
         top: nextSection.offsetTop,
@@ -44,35 +38,28 @@ function setupNav() {
   }
 }
 function removeActiveStateFromSections() {
-
   for (let i = 0; i < sections.length; i++) {
-    
     sections[i].classList.remove("active-class");
   }
-    
-      
 }
 
 window.addEventListener("scroll", function () {
   let navLinks = document.querySelectorAll("nav li");
   let currentPosition = window.scrollY;
-  
+
   for (let i = 0; i < positions.length; i++) {
     if (currentPosition >= positions[i]) {
       removeActiveStateFromSections();
       sections[i].classList.add("active-class");
       sections[i].style.color = "yellow";
 
-      
       for (let x = 0; x < navLinks.length; x++) {
         console.log(navLinks[x]);
         if (navLinks[x].getAttribute("data-section") === sections[i].id) {
           // change the style for the nav item not section
-          navLinks[i].style.color = "yellow";
-        }else{
-          
-          navLinks[i].style.color = "black";
-
+          navLinks[x].style.color = "yellow";
+        } else {
+          navLinks[x].style.color = "black";
         }
       }
     }
